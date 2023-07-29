@@ -1,5 +1,8 @@
+import Center from "@/components/Center";
 import "./globals.css";
 import type { Metadata } from "next";
+import AppShell from "@/components/AppShell";
+import AuthRedirect from "@/components/AuthRedirect";
 
 export const metadata: Metadata = {
   title: "Multiple",
@@ -9,7 +12,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Center>
+          <AppShell>
+            <AuthRedirect>{children}</AuthRedirect>
+          </AppShell>
+        </Center>
+      </body>
     </html>
   );
 }

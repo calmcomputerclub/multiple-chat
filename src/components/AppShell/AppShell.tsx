@@ -1,18 +1,12 @@
-import AppBody from "../AppBody";
-import AppBottom from "../AppBottom";
-import Appbar from "../Appbar";
-import Drawer from "../Drawer";
+import type { ReactNode } from "react";
 import styles from "./AppShell.module.scss";
 
-const AppShell = () => {
-  return (
-    <div className={styles.AppShell}>
-      <Appbar />
-      <AppBody />
-      <AppBottom />
-      <Drawer />
-    </div>
-  );
+interface AppShellProps {
+  children: ReactNode;
+}
+
+const AppShell = ({ children }: AppShellProps) => {
+  return <div className={styles.AppShell}>{children}</div>;
 };
 
 export default AppShell;
