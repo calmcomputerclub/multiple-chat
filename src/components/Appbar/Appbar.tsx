@@ -1,9 +1,12 @@
-import styles from './Appbar.module.scss';
+import styles from "./Appbar.module.scss";
 
 const Appbar = () => {
   return (
     <div className={styles.Appbar}>
-      {/* Component code goes here */}
+      <div>
+        <h1>tinnyard</h1>
+        Setting
+      </div>
     </div>
   );
 };
