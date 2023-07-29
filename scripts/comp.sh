@@ -33,7 +33,7 @@ mkdir $full_path
 # Navigate to the new directory
 cd $full_path
 
-# Create the files
+# Component.tsx
 echo "import styles from './${component_name}.module.scss';
 
 const ${component_name} = () => {
@@ -46,8 +46,11 @@ const ${component_name} = () => {
 
 export default ${component_name};" > ${component_name}.tsx
 
-echo "export { default } from './${component_name}';" > index.ts
+# index.ts
+echo "import ${component_name} from './${component_name}';
+export default ${component_name};" > index.ts
 
+# Component.module.scss
 echo ".${component_name} {}" > ${component_name}.module.scss
 
 # Navigate back to the original directory
