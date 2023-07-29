@@ -14,9 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Center>
-          <AppShell>
-            <AuthRedirect>{children}</AuthRedirect>
-          </AppShell>
+          <AppShell>{children}</AppShell>
         </Center>
       </body>
     </html>

@@ -14,4 +14,9 @@
   &:hover {
     opacity: 1;
   }
+
+  &.full {
+    width: 100%;
+    justify-content: center;
+  }
 }
