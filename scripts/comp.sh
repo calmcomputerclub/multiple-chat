@@ -8,7 +8,7 @@ NC='\033[0m' # No Color
 component_name=$1
 
 # Base directory
-base_directory="./src/components"
+base_directory="${2:-./src/components}"
 
 # Check if component name is provided
 if [ -z "$component_name" ]
