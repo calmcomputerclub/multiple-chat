@@ -1,11 +1,11 @@
-import styles from './Center.module.scss';
+import styles from "./Center.module.scss";
 
-const Center = () => {
-  return (
-    <div className={styles.Center}>
-      {/* Component code goes here */}
-    </div>
-  );
+interface CenterProps {
+  children: React.ReactNode;
+}
+
+const Center = ({ children }: CenterProps) => {
+  return <div className={styles.Center}>{children}</div>;
 };
 
 export default Center;
