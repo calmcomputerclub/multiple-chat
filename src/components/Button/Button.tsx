@@ -1,10 +1,17 @@
-import styles from './Button.module.scss';
+"use client";
+import type { ReactNode } from "react";
+import styles from "./Button.module.scss";
 
-const Button = () => {
+interface ButtonProps {
+  onClick: () => void;
+  children: ReactNode;
+}
+
+const Button = ({ children, onClick }: ButtonProps) => {
   return (
-    <div className={styles.Button}>
-      {/* Component code goes here */}
-    </div>
+    <button onClick={onClick} className={styles.Button}>
+      {children}
+    </button>
   );
 };
 

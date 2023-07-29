@@ -1,1 +1,10 @@
-.Input {}
+.Input {
+  flex: 1;
+  padding: 4px;
+  &:focus-within {
+  }
+
+  &::placeholder {
+    color: rgb(216, 216, 216);
+  }
+}

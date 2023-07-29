@@ -11,6 +11,12 @@ button {
   cursor: pointer;
 }
 
+input {
+  border: none;
+  background: none;
+  outline: none;
+}
+
 body {
   color: #333;
   background-color: #000000;

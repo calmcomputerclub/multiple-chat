@@ -1,11 +1,10 @@
-import styles from './Input.module.scss';
+import { ComponentProps } from "react";
+import styles from "./Input.module.scss";
 
-const Input = () => {
-  return (
-    <div className={styles.Input}>
-      {/* Component code goes here */}
-    </div>
-  );
+interface InputProps extends ComponentProps<"input"> {}
+
+const Input = ({ ...props }: InputProps) => {
+  return <input className={styles.Input} {...props} />;
 };
 
 export default Input;
