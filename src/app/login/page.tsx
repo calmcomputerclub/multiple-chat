@@ -22,7 +22,7 @@ const LoginPage = () => {
         <div>
           <label className={styles.Label}>
             <span>Password</span>
-            <Input bordered placeholder="Password" />
+            <Input type="password" bordered placeholder="Password" />
           </label>
         </div>
       </div>
