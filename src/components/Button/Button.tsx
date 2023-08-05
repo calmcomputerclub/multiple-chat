@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import styles from "./Button.module.scss";
 import cn from "classnames/bind";
 
 const cx = cn.bind(styles);
 
-interface ButtonProps {
+interface ButtonProps extends ComponentProps<"button"> {
   onClick: () => void;
   children: ReactNode;
   full?: boolean;
@@ -12,10 +12,11 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button = ({ full, children, onClick }: ButtonProps) => {
+const Button = ({ full, children, onClick, loading, disabled, ...props }: ButtonProps) => {
+  const _disabled = loading || disabled;
   return (
-    <button onClick={onClick} className={cx("Button", { full })}>
-      {children}
+    <button disabled={_disabled} onClick={onClick} className={cx("Button", { full })} {...props}>
+      {loading ? "loading" : children}
     </button>
   );
 };

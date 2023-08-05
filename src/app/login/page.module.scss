@@ -1,25 +1,7 @@
 .LoginPage {
   display: flex;
-  // align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100%;
   gap: 24px;
-
-  .InputContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .Label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-weight: 600;
-  }
-
-  .RegisterText {
-    text-align: right;
-  }
 }
