@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  apiKey: "AIzaSyBW9_8Ge_PIXTEDvw6eSlIngBvwFRvR8eM",
   authDomain: "multiple-chat-54d90.firebaseapp.com",
   projectId: "multiple-chat-54d90",
   storageBucket: "multiple-chat-54d90.appspot.com",

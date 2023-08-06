@@ -1,5 +1,6 @@
 import { app } from "@/lib/firebase-app";
 import useUserStore from "@/stores/user.store";
+import { generateRandomString } from "@/utils/rand";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth(app);
@@ -13,9 +14,15 @@ const _userService = () => {
     useUserStore.setState({ email: credential.user.email });
   };
 
+  const createNickName = () => {
+    const randName = generateRandomString();
+    useUserStore.setState({ nickName: randName });
+  };
+
   return {
     login,
     register,
+    createNickName,
   };
 };
 
