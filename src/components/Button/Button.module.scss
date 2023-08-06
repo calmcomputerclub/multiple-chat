@@ -1,13 +1,16 @@
 .Button {
-  padding: 8px 10px;
+  padding: 14px;
   border-radius: 4px;
   display: flex;
   align-items: center;
+
   gap: 4px;
   background-color: #f4d03f;
   background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
   color: #fff;
+  font-size: 16px;
   font-weight: 600;
+
   transition: all 0.2s ease-in-out;
   opacity: 0.8;
 
@@ -18,5 +21,9 @@
   &.full {
     width: 100%;
     justify-content: center;
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 }

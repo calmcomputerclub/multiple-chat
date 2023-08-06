@@ -1,6 +1,7 @@
 .Input {
   flex: 1;
-  padding: 4px;
+  padding: 10px;
+  font-size: 16px;
 
   &:focus-within {
   }
@@ -11,7 +12,7 @@
 
   &.bordered {
     border-radius: 4px;
-    padding: 8px;
+    padding: 10px;
 
     background: rgba(255, 255, 255, 1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

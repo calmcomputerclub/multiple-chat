@@ -1,8 +1,7 @@
-import Center from "@/components/Center";
-import "./globals.css";
-import type { Metadata } from "next";
 import AppShell from "@/components/AppShell";
-import AuthRedirect from "@/components/AuthRedirect";
+import Center from "@/components/Center";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Multiple",

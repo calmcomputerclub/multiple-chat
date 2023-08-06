@@ -1,4 +1,4 @@
-import { atom, useAtom } from "jotai";
+import { atom, useAtom, useAtomValue } from "jotai";
 import { useCallback } from "react";
 
 const loadingAtom = atom(false);
@@ -18,6 +18,10 @@ const useLoading = () => {
     startLoading,
     finishLoading,
   };
+};
+
+export const useLoadingValue = () => {
+  return useAtomValue(loadingAtom);
 };
 
 export default useLoading;
