@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Backdrop from "../Backdrop";
 import styles from "./Drawer.module.scss";
@@ -29,7 +30,9 @@ const Drawer = () => {
     <>
       <Backdrop onClick={close} visible={active} />
       <div className={cx("Drawer", { active })}>
-        <div></div>
+        <div className={cx("DrawerBody")}>
+          <h1>Drawer</h1>
+        </div>
       </div>
     </>
   );

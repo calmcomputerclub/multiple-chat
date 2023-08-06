@@ -1,8 +1,14 @@
 .ChatBox {
+  animation: fadeIn 1s forwards;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgb(189, 249, 226);
   margin-bottom: 8px;
+
+  background-color: rgb(209, 209, 209);
+
+  &.isMine {
+    background-color: rgb(225, 255, 183);
+  }
 
   .NickName {
     font-size: 17px;
@@ -10,7 +16,17 @@
     margin-bottom: 8px;
   }
 
-  .Message {
-    color: rgb(32, 32, 32);
+  .MessageContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .Message {
+      color: rgb(32, 32, 32);
+    }
+
+    .Date {
+      font-size: 13px;
+      color: rgb(113, 113, 113);
+    }
   }
 }

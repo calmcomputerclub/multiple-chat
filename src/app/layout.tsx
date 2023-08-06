@@ -1,7 +1,7 @@
 import AppShell from "@/components/AppShell";
 import Center from "@/components/Center";
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/index.css";
 
 export const metadata: Metadata = {
   title: "Multiple",
