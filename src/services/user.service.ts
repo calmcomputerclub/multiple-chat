@@ -4,6 +4,7 @@ import { generateRandomString } from "@/utils/rand";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth(app);
+
 const _userService = () => {
   const login = async (email: string, password: string) => {
     const credential = await signInWithEmailAndPassword(auth, email, password);

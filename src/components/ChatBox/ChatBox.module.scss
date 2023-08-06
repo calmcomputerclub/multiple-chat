@@ -1,1 +1,16 @@
-.ChatBox {}
+.ChatBox {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgb(189, 249, 226);
+  margin-bottom: 8px;
+
+  .NickName {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .Message {
+    color: rgb(32, 32, 32);
+  }
+}

@@ -1,0 +1,9 @@
+.ChatSendForm {
+  width: 100%;
+  .SendContainer {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+    padding: 0 8px;
+  }
+}
