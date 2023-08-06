@@ -2,6 +2,8 @@
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 import ScreenLoading from "../ScreenLoading";
+import useUserStore from "@/stores/user.store";
+import useLoading from "@/hooks/useLoading";
 
 interface AuthRedirectProps {
   children: ReactNode;
@@ -10,38 +12,42 @@ interface AuthRedirectProps {
 const unprotectedRoute = ["/login", "/register"];
 
 const AuthRedirect = ({ children }: AuthRedirectProps) => {
-  const [loading, setLoading] = useState(false);
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const { loading, startLoading, finishLoading } = useLoading();
+  const isLogged = useUserStore((state) => state.email);
   const router = useRouter();
   const pathname = usePathname();
   const isUnProtectedRoute = unprotectedRoute.includes(pathname);
 
-  const checkLoginStatus = async () => {
-    setLoading(true);
-    const result = await new Promise((resolve) => {
-      // TODO: replace checking logic
-      setTimeout(() => {
-        resolve(false);
-      }, 1000);
-    });
-    setLoading(false);
-    return result;
-  };
-
   useEffect(() => {
+    const checkLoginStatus = async () => {
+      startLoading();
+      const result = await new Promise((resolve) => {
+        setTimeout(() => {
+          if (isLogged) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        }, 600);
+      });
+      finishLoading();
+      return result;
+    };
+
     const check = async () => {
       const res = await checkLoginStatus();
       if (!res) {
-        // router.push("/login");
+        router.push("/login");
       }
     };
+
     if (!isUnProtectedRoute) {
       check();
     }
-  }, [router, isUnProtectedRoute]);
+  }, [router, isUnProtectedRoute, finishLoading, startLoading, isLogged]);
 
   if (loading) return <ScreenLoading />;
-  if (isLoggedIn) return <>{children}</>;
+  if (isLogged) return <>{children}</>;
   return null;
 };
 

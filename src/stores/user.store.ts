@@ -1,20 +1,16 @@
 import { create } from "zustand";
-import { devtools, combine, createJSONStorage, persist } from "zustand/middleware";
+import { combine, devtools } from "zustand/middleware";
 
 const intiialState = {
-  nickName: "",
+  email: null as string | null,
 };
 const name = "UserStore";
 
 const useUserStore = create(
   devtools(
-    persist(
-      combine(intiialState, (set) => ({})),
-      {
-        name,
-        storage: createJSONStorage(() => localStorage),
-      },
-    ),
+    combine(intiialState, (set) => ({
+      setEmail: (email: string) => set({ email }),
+    })),
     {
       name,
     },

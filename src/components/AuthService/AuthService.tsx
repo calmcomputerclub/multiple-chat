@@ -1,14 +1,12 @@
 "use client";
 import useLoading from "@/hooks/useLoading";
-import { app } from "@/lib/firebase-app";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import UserService from "@/services/user.service";
 import Link from "next/link";
 import { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import styles from "./AuthService.module.scss";
-
-const auth = getAuth(app);
+import { useRouter } from "next/navigation";
 
 interface AuthServiceProps {
   type: "login" | "register";
@@ -16,6 +14,7 @@ interface AuthServiceProps {
 
 const AuthService = ({ type }: AuthServiceProps) => {
   const { loading, startLoading, finishLoading } = useLoading();
+  const router = useRouter();
   const [authState, setAuthState] = useState({
     email: "",
     password: "",
@@ -29,18 +28,19 @@ const AuthService = ({ type }: AuthServiceProps) => {
       alert("Password and Password Confirm are not the same.");
     }
 
-    const credential = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(credential);
+    await UserService.register(email, password);
+    router.push("/login");
   };
 
   const login = async () => {
-    const credential = await signInWithEmailAndPassword(auth, authState.email, authState.password);
-    console.log(credential);
+    await UserService.login(authState.email, authState.password);
+    router.push("/");
   };
 
   const handleClick = async () => {
     startLoading();
     const handler = type === "login" ? login : register;
+
     try {
       await handler();
     } catch (error) {
@@ -59,8 +59,6 @@ const AuthService = ({ type }: AuthServiceProps) => {
       [name]: value,
     }));
   };
-
-  console.log(authState);
 
   return (
     <div className={styles.AuthService}>

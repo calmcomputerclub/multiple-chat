@@ -1,17 +1,17 @@
-import { useCallback, useState } from "react";
+import { atom, useAtom } from "jotai";
+import { useCallback } from "react";
 
-// TODO use atom
-
-const useLoading = (initValue = false) => {
-  const [loading, setLoading] = useState(initValue);
+const loadingAtom = atom(false);
+const useLoading = () => {
+  const [loading, setLoading] = useAtom(loadingAtom);
 
   const startLoading = useCallback(() => {
     setLoading(true);
-  }, []);
+  }, [setLoading]);
 
   const finishLoading = useCallback(() => {
     setLoading(false);
-  }, []);
+  }, [setLoading]);
 
   return {
     loading,
