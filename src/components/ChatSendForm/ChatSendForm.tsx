@@ -5,7 +5,7 @@ import Input from "../Input";
 import styles from "./ChatSendForm.module.scss";
 import { useState } from "react";
 import useUserStore from "@/stores/user.store";
-import { Chat } from "@/types";
+import { ChatRequest } from "@/types";
 import ChatService from "@/services/chat.service";
 
 const ChatSendForm = () => {
@@ -14,12 +14,11 @@ const ChatSendForm = () => {
 
   const handleSend = async () => {
     if (!message) return;
-    const chat: Chat = {
-      date: new Date().toString(),
+    const chat: ChatRequest = {
       message,
-      nickName,
+      sender: nickName,
     };
-    await ChatService.addChat(chat);
+    await ChatService.sendChat(chat);
     setMessage("");
   };
 
@@ -27,7 +26,6 @@ const ChatSendForm = () => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleSend();
       }}
       className={styles.ChatSendForm}
     >

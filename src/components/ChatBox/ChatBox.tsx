@@ -8,7 +8,7 @@ const cx = cn.bind(styles);
 interface ChatBoxProps {
   nickName: string;
   message: string;
-  date: string | Date;
+  date?: string | Date;
 }
 
 const ChatBox = ({ message, nickName, date }: ChatBoxProps) => {

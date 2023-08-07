@@ -20,6 +20,8 @@ const _userService = () => {
     useUserStore.setState({ nickName: randName });
   };
 
+  // const
+
   return {
     login,
     register,
